@@ -9,15 +9,19 @@ gobject-sys = "0.4"
 
 [dependencies.gstreamer-sys]
 path = "../gstreamer-sys"
+version = "0.2"
 
 [dependencies.gstreamer-audio-sys]
 path = "../gstreamer-audio-sys"
+version = "0.2"
 
 [dependencies.gstreamer-video-sys]
 path = "../gstreamer-video-sys"
+version = "0.2"
 
 [dependencies.gstreamer-tag-sys]
 path = "../gstreamer-tag-sys"
+version = "0.2"
 
 [features]
 v1_0_10 = []
