@@ -4,10 +4,9 @@
 #![allow(non_camel_case_types, non_upper_case_globals)]
 
 extern crate libc;
-#[macro_use] extern crate bitflags;
 extern crate glib_sys as glib;
 extern crate gobject_sys as gobject;
-extern crate gst_sys as gst;
+extern crate gstreamer_sys as gst;
 
 #[allow(unused_imports)]
 use libc::{c_int, c_char, c_uchar, c_float, c_uint, c_double,
