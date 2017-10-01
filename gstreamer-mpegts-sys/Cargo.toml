@@ -20,19 +20,11 @@ path = "../gstreamer-base-sys"
 [dependencies.gstreamer-sys]
 path = "../gstreamer-sys"
 
-[features]
-v1_2 = []
-v1_4 = ["v1_2"]
-v1_6 = ["v1_4"]
-v1_8 = ["v1_6"]
-v1_10 = ["v1_8"]
-v1_12 = ["v1_10"]
-
 [lib]
 name = "gstreamer_mpegts_sys"
 
 [package]
-authors = ["Russel Winder <russel@winder.org.uk>"]
+authors = ["Russel Winder <russel@winder.org.uk>", "Sebastian Dröge <sebastian@centricular.com>"]
 build = "build.rs"
 description = "FFI bindings to libgstmpegts-1.0"
 homepage = "https://gstreamer.freedesktop.org"
@@ -42,4 +34,4 @@ links = "gstmpegts-1.0"
 name = "gstreamer-mpets-sys"
 readme = "README.md"
 repository = "https://github.com/sdroege/gstreamer-sys"
-version = "0.0.0"
+version = "0.3.0"
