@@ -16,9 +16,11 @@ git = "https://github.com/gtk-rs/sys"
 
 [dependencies.gstreamer-base-sys]
 path = "../gstreamer-base-sys"
+version = "0.3"
 
 [dependencies.gstreamer-sys]
 path = "../gstreamer-sys"
+version = "0.3"
 
 [features]
 dox = []
