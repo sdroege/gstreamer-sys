@@ -24,6 +24,10 @@ path = "../gstreamer-sdp-sys"
 [dependencies.gstreamer-sys]
 path = "../gstreamer-sys"
 
+[dev-dependencies]
+shell-words = "0.1.0"
+tempdir = "0.3"
+
 [features]
 dox = []
 v1_4 = []

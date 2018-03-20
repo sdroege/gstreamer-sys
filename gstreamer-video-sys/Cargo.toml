@@ -13,6 +13,10 @@ path = "../gstreamer-sys"
 [dependencies.gstreamer-base-sys]
 path = "../gstreamer-base-sys"
 
+[dev-dependencies]
+shell-words = "0.1.0"
+tempdir = "0.3"
+
 [features]
 v1_0_3 = []
 v1_2 = ["v1_0_3"]

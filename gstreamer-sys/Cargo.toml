@@ -7,6 +7,10 @@ libc = "0.2"
 glib-sys = { git = "https://github.com/gtk-rs/sys" }
 gobject-sys = { git = "https://github.com/gtk-rs/sys" }
 
+[dev-dependencies]
+shell-words = "0.1.0"
+tempdir = "0.3"
+
 [features]
 v1_0_10 = []
 v1_2 = ["v1_0_10"]
