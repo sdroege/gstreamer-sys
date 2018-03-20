@@ -3,13 +3,15 @@ pkg-config = "0.3.7"
 
 [dependencies]
 libc = "0.2"
-glib-sys = { git = "https://github.com/gtk-rs/sys" }
+glib-sys = "0.6"
 
 [dependencies.gstreamer-sys]
 path = "../gstreamer-sys"
+version = "0.5"
 
 [dependencies.gstreamer-base-sys]
 path = "../gstreamer-base-sys"
+version = "0.5"
 
 [features]
 v1_2 = []
