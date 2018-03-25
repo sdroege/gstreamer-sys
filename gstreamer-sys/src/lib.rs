@@ -441,7 +441,7 @@ pub const GST_ELEMENT_FACTORY_KLASS_SRC: *const c_char = b"Source\0" as *const u
 pub const GST_ELEMENT_FACTORY_TYPE_ANY: GstElementFactoryListType = 562949953421311;
 pub const GST_ELEMENT_FACTORY_TYPE_AUDIOVIDEO_SINKS: GstElementFactoryListType = 3940649673949188;
 pub const GST_ELEMENT_FACTORY_TYPE_AUDIO_ENCODER: GstElementFactoryListType = 1125899906842626;
-pub const GST_ELEMENT_FACTORY_TYPE_DECODABLE: GstElementFactoryListType = 353;
+pub const GST_ELEMENT_FACTORY_TYPE_DECODABLE: GstElementFactoryListType = 1377;
 pub const GST_ELEMENT_FACTORY_TYPE_DECODER: GstElementFactoryListType = 1;
 pub const GST_ELEMENT_FACTORY_TYPE_DECRYPTOR: GstElementFactoryListType = 1024;
 pub const GST_ELEMENT_FACTORY_TYPE_DEMUXER: GstElementFactoryListType = 32;
@@ -482,11 +482,11 @@ pub const GST_MAP_READWRITE: GstMapFlags = GstMapFlags { bits: 3 };
 pub const GST_META_TAG_MEMORY_STR: *const c_char = b"memory\0" as *const u8 as *const c_char;
 pub const GST_MSECOND: GstClockTimeDiff = 1000000;
 pub const GST_NSECOND: GstClockTimeDiff = 1;
-pub const GST_PARAM_CONTROLLABLE: c_int = 2;
-pub const GST_PARAM_MUTABLE_PAUSED: c_int = 8;
-pub const GST_PARAM_MUTABLE_PLAYING: c_int = 16;
-pub const GST_PARAM_MUTABLE_READY: c_int = 4;
-pub const GST_PARAM_USER_SHIFT: c_int = 256;
+pub const GST_PARAM_CONTROLLABLE: c_int = 512;
+pub const GST_PARAM_MUTABLE_PAUSED: c_int = 2048;
+pub const GST_PARAM_MUTABLE_PLAYING: c_int = 4096;
+pub const GST_PARAM_MUTABLE_READY: c_int = 1024;
+pub const GST_PARAM_USER_SHIFT: c_int = 65536;
 pub const GST_PROTECTION_SYSTEM_ID_CAPS_FIELD: *const c_char = b"protection-system\0" as *const u8 as *const c_char;
 pub const GST_PTR_FORMAT: *const c_char = b"paA\0" as *const u8 as *const c_char;
 pub const GST_QUERY_NUM_SHIFT: c_int = 8;
@@ -6128,14 +6128,14 @@ extern "C" {
     pub fn gst_plugin_get_type() -> GType;
     pub fn gst_plugin_list_free(list: *mut glib::GList);
     pub fn gst_plugin_load_by_name(name: *const c_char) -> *mut GstPlugin;
-    pub fn gst_plugin_load_file(filename: *mut c_char, error: *mut *mut glib::GError) -> *mut GstPlugin;
+    pub fn gst_plugin_load_file(filename: *const c_char, error: *mut *mut glib::GError) -> *mut GstPlugin;
     pub fn gst_plugin_register_static(major_version: c_int, minor_version: c_int, name: *const c_char, description: *const c_char, init_func: GstPluginInitFunc, version: *const c_char, license: *const c_char, source: *const c_char, package: *const c_char, origin: *const c_char) -> gboolean;
     pub fn gst_plugin_register_static_full(major_version: c_int, minor_version: c_int, name: *const c_char, description: *const c_char, init_full_func: GstPluginInitFullFunc, version: *const c_char, license: *const c_char, source: *const c_char, package: *const c_char, origin: *const c_char, user_data: gpointer) -> gboolean;
     pub fn gst_plugin_add_dependency(plugin: *mut GstPlugin, env_vars: *mut *mut c_char, paths: *mut *mut c_char, names: *mut *mut c_char, flags: GstPluginDependencyFlags);
     pub fn gst_plugin_add_dependency_simple(plugin: *mut GstPlugin, env_vars: *const c_char, paths: *const c_char, names: *const c_char, flags: GstPluginDependencyFlags);
     pub fn gst_plugin_get_cache_data(plugin: *mut GstPlugin) -> *const GstStructure;
     pub fn gst_plugin_get_description(plugin: *mut GstPlugin) -> *const c_char;
-    pub fn gst_plugin_get_filename(plugin: *mut GstPlugin) -> *mut c_char;
+    pub fn gst_plugin_get_filename(plugin: *mut GstPlugin) -> *const c_char;
     pub fn gst_plugin_get_license(plugin: *mut GstPlugin) -> *const c_char;
     pub fn gst_plugin_get_name(plugin: *mut GstPlugin) -> *const c_char;
     pub fn gst_plugin_get_origin(plugin: *mut GstPlugin) -> *const c_char;
@@ -6195,7 +6195,7 @@ extern "C" {
     pub fn gst_registry_plugin_filter(registry: *mut GstRegistry, filter: GstPluginFilter, first: gboolean, user_data: gpointer) -> *mut glib::GList;
     pub fn gst_registry_remove_feature(registry: *mut GstRegistry, feature: *mut GstPluginFeature);
     pub fn gst_registry_remove_plugin(registry: *mut GstRegistry, plugin: *mut GstPlugin);
-    pub fn gst_registry_scan_path(registry: *mut GstRegistry, path: *mut c_char) -> gboolean;
+    pub fn gst_registry_scan_path(registry: *mut GstRegistry, path: *const c_char) -> gboolean;
 
     //=========================================================================
     // GstStream
@@ -6347,8 +6347,8 @@ extern "C" {
     // GstPreset
     //=========================================================================
     pub fn gst_preset_get_type() -> GType;
-    pub fn gst_preset_get_app_dir() -> *mut c_char;
-    pub fn gst_preset_set_app_dir(app_dir: *mut c_char) -> gboolean;
+    pub fn gst_preset_get_app_dir() -> *const c_char;
+    pub fn gst_preset_set_app_dir(app_dir: *const c_char) -> gboolean;
     pub fn gst_preset_delete_preset(preset: *mut GstPreset, name: *const c_char) -> gboolean;
     pub fn gst_preset_get_meta(preset: *mut GstPreset, name: *const c_char, tag: *const c_char, value: *mut *mut c_char) -> gboolean;
     pub fn gst_preset_get_preset_names(preset: *mut GstPreset) -> *mut *mut c_char;
@@ -6401,8 +6401,8 @@ extern "C" {
     #[cfg(any(feature = "v1_14", feature = "dox"))]
     pub fn gst_debug_add_ring_buffer_logger(max_size_per_thread: c_uint, thread_timeout: c_uint);
     pub fn gst_debug_bin_to_dot_data(bin: *mut GstBin, details: GstDebugGraphDetails) -> *mut c_char;
-    pub fn gst_debug_bin_to_dot_file(bin: *mut GstBin, details: GstDebugGraphDetails, file_name: *mut c_char);
-    pub fn gst_debug_bin_to_dot_file_with_ts(bin: *mut GstBin, details: GstDebugGraphDetails, file_name: *mut c_char);
+    pub fn gst_debug_bin_to_dot_file(bin: *mut GstBin, details: GstDebugGraphDetails, file_name: *const c_char);
+    pub fn gst_debug_bin_to_dot_file_with_ts(bin: *mut GstBin, details: GstDebugGraphDetails, file_name: *const c_char);
     pub fn gst_debug_construct_term_color(colorinfo: c_uint) -> *mut c_char;
     pub fn gst_debug_construct_win_color(colorinfo: c_uint) -> c_int;
     pub fn gst_debug_get_all_categories() -> *mut glib::GSList;
@@ -6437,7 +6437,7 @@ extern "C" {
     pub fn gst_deinit();
     pub fn gst_dynamic_type_register(plugin: *mut GstPlugin, type_: GType) -> gboolean;
     pub fn gst_error_get_message(domain: glib::GQuark, code: c_int) -> *mut c_char;
-    pub fn gst_filename_to_uri(filename: *mut c_char, error: *mut *mut glib::GError) -> *mut c_char;
+    pub fn gst_filename_to_uri(filename: *const c_char, error: *mut *mut glib::GError) -> *mut c_char;
     pub fn gst_flow_get_name(ret: GstFlowReturn) -> *const c_char;
     pub fn gst_flow_to_quark(ret: GstFlowReturn) -> glib::GQuark;
     pub fn gst_formats_contains(formats: *mut GstFormat, format: GstFormat) -> gboolean;

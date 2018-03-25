@@ -374,9 +374,9 @@ pub const GST_VIDEO_RESAMPLER_OPT_SHARPEN: *const c_char = b"GstVideoResampler.s
 pub const GST_VIDEO_RESAMPLER_OPT_SHARPNESS: *const c_char = b"GstVideoResampler.sharpness\0" as *const u8 as *const c_char;
 pub const GST_VIDEO_SCALER_OPT_DITHER_METHOD: *const c_char = b"GstVideoScaler.dither-method\0" as *const u8 as *const c_char;
 pub const GST_VIDEO_SIZE_RANGE: *const c_char = b"(int) [ 1, max ]\0" as *const u8 as *const c_char;
-pub const GST_VIDEO_TILE_TYPE_MASK: c_int = 0;
+pub const GST_VIDEO_TILE_TYPE_MASK: c_int = 65535;
 pub const GST_VIDEO_TILE_TYPE_SHIFT: c_int = 16;
-pub const GST_VIDEO_TILE_X_TILES_MASK: c_int = 0;
+pub const GST_VIDEO_TILE_X_TILES_MASK: c_int = 65535;
 pub const GST_VIDEO_TILE_Y_TILES_SHIFT: c_int = 16;
 
 // Flags
