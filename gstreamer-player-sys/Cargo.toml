@@ -9,16 +9,18 @@ pkg-config = "0.3.7"
 libc = "0.2"
 
 [dependencies.glib-sys]
-git = "https://github.com/gtk-rs/sys"
+version = "0.7"
 
 [dependencies.gobject-sys]
-git = "https://github.com/gtk-rs/sys"
+version = "0.7"
 
 [dependencies.gstreamer-sys]
 path = "../gstreamer-sys"
+version = "0.6"
 
 [dependencies.gstreamer-video-sys]
 path = "../gstreamer-video-sys"
+version = "0.6"
 
 [dev-dependencies]
 shell-words = "0.1.0"
