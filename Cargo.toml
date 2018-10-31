@@ -15,4 +15,5 @@ members = [
   "gstreamer-rtsp-sys",
   "gstreamer-rtsp-server-sys",
   "gstreamer-webrtc-sys"
+  "gstreamer-editing-services-sys",
 ]
