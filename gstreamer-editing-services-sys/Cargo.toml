@@ -1,6 +1,6 @@
-[badges.travis-ci]
+[badges.gitlab]
 branch = "master"
-repository = "sdroege/gstreamer-sys"
+repository = "https://gitlab.freedesktop.org/gstreamer/gstreamer-rs-sys"
 
 [build-dependencies]
 pkg-config = "0.3.7"
@@ -9,13 +9,13 @@ pkg-config = "0.3.7"
 libc = "0.2"
 
 [dependencies.gio-sys]
-git = "https://github.com/gtk-rs/sys"
+version = "0.7"
 
 [dependencies.glib-sys]
-git = "https://github.com/gtk-rs/sys"
+version = "0.7"
 
 [dependencies.gobject-sys]
-git = "https://github.com/gtk-rs/sys"
+version = "0.7"
 
 [dependencies.gstreamer-base-sys]
 path = "../gstreamer-base-sys"
@@ -52,5 +52,5 @@ license = "MIT"
 links = "ges-1.0"
 name = "gstreamer-editing-services-sys"
 readme = "README.md"
-repository = "https://github.com/sdroege/gstreamer-sys"
-version = "0.7.0"
+repository = "https://gitlab.freedesktop.org/gstreamer/gstreamer-rs-sys"
+version = "0.6.0"
