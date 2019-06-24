@@ -5,22 +5,25 @@ pkg-config = "0.3.7"
 libc = "0.2"
 
 [dependencies.gio-sys]
-git = "https://github.com/gtk-rs/sys"
+version = "0.9"
 
 [dependencies.glib-sys]
-git = "https://github.com/gtk-rs/sys"
+version = "0.9"
 
 [dependencies.gobject-sys]
-git = "https://github.com/gtk-rs/sys"
+version = "0.9"
 
 [dependencies.gstreamer-base-sys]
 path = "../gstreamer-base-sys"
+version = "0.8"
 
 [dependencies.gstreamer-pbutils-sys]
 path = "../gstreamer-pbutils-sys"
+version = "0.8"
 
 [dependencies.gstreamer-sys]
 path = "../gstreamer-sys"
+version = "0.8"
 
 [dev-dependencies]
 shell-words = "0.1.0"
